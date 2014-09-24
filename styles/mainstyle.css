@@ -51,6 +51,9 @@
 	color: #FFF;
 	text-align: center;
 	display:inline-block;
+	/* Remove this Later*/
+	display:none;
+	/*   */
 	display:flex;
 	margin:0 auto;
 }
