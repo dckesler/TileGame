@@ -1,0 +1,130 @@
+.background {
+	background: hsla(357, 69%, 65%, 1);
+	position: absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index: -1;
+}
+
+.play {
+	background: hsla(34, 87%, 52%, 1);
+	padding:20px 0;
+	border-radius: 10px;
+	width:200px;
+	box-shadow: inset 0 -4px 5px hsla(34, 87%, 42%, 1);
+	position:absolute;
+	left: 50%;
+	margin-left:-100px;
+	bottom: 90px;
+	font-size: 2.2rem;
+	color: #FFF;
+	text-align: center;
+}
+
+.titlebox {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 300px;
+	margin:0 auto;
+	text-align: center;
+}
+
+.title {
+	font-size: 2.5rem;
+	color:#FFF;
+	text-shadow:2px 2px 1px #666;
+	margin-bottom: 40px;
+}
+
+.descrip {
+	font-size: 1rem;
+	color:#ABABAB;
+}
+.pause {
+	background: hsla(34, 87%, 52%, 1);
+	padding:20px 50px;
+	border-radius: 10px;
+	box-shadow: inset 0 -4px 5px hsla(34, 87%, 42%, 1);
+	color: #FFF;
+	text-align: center;
+	display:inline-block;
+	display:flex;
+	margin:0 auto;
+}
+.pause:hover {
+	cursor: pointer;
+}
+.timer {
+	background: hsla(357, 69%, 71%, 1);
+	border-radius:10px;
+	color: hsla(357, 69%, 86%, 1);
+	padding:10px;
+	font-size: 1.5rem;
+	text-align: center;
+	display:inline-block;
+	display:flex;
+	margin:0 auto;
+}
+.score {
+	background: hsla(145, 87%, 52%, 1);
+	padding:20px 45px;
+	border-radius: 10px;
+	box-shadow: inset 0 -4px 5px hsla(145, 87%, 42%, 1);
+	color: #FFF;
+	text-align: center;
+	display:inline-block;
+	display:flex;
+	margin:0 auto;
+}
+.tileContainer {
+	background: #CCC;
+	width:95%;
+	max-width:530px;
+	display: flex;
+	border-radius: 5px;
+	flex-wrap: wrap;
+	padding:5px;
+	margin:0 auto;
+}
+
+.aTile {
+	width:20px;
+	height:20px;
+	background: #444;
+	margin:1%;
+	border-radius: 3px;
+	display:inline-block;
+}
+
+.aTile:hover{
+	cursor: pointer;
+}
+
+.board {
+	display:flex;
+	justify-content:space-around;
+	align-content: stretch;
+	flex-direction: row;
+	padding:10px;
+	margin-bottom: 5px;
+}
+.finalscore {
+	font-size:2rem;
+	background: hsla(145, 87%, 52%, 1);
+	padding:20px 45px;
+	border-radius: 10px;
+	box-shadow: inset 0 -4px 5px hsla(145, 87%, 42%, 1);
+	color: #FFF;
+	text-align: center;
+	display:inline-block;
+	display:none;
+	margin:100px auto;
+
+}
+.again {
+	display: none;
+}
+

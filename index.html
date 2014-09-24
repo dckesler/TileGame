@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tileApp">
+<head>
+	<link rel="stylesheet" href="styles/mainstyle.css">
+	<meta charset="UTF-8">
+	<title>Tile Game</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="http://necolas.github.io/normalize.css/3.0.1/normalize.css">
+</head>
+
+<body ng-controller="tileController">
+
+	<div ng-show="showTitle" class="titlebox">
+		<div class="title">
+			Tile Game
+		</div>
+		<div class="descrip">
+			Click the lightest colored tile.<br>
+			<a href="http://game.ioxapp.com/color/">Link to original</a>
+		</div>
+	</div>
+
+	<div class="background">
+		<div ng-click="plays(gameDifficulty, true)" class="play" ng-show="showTitle">
+			Play
+		</div>
+	</div>
+
+	<div class="board" ng-show="showBoard">
+		<div class="score">Score: {{getScore()}}</div>
+		<div class="timer butt">60</div>
+		<div class="pause butt">Pause</div>
+	</div>
+
+	<div class="tileContainer butt" ng-show="showBoard">
+		<div ng-repeat="item in playingList" class="aTile" style="background-color:hsla({{item.hue}}, 50%, {{item.lightness}}%, 1); width:{{item.square}}%; height:{{item.square}}%; margin:{{item.mar}}%" ng-click="plays(gameDifficulty, item.click)">
+		</div>
+	</div>
+	<div class="finalscore">Score: {{getScore()}}</div>
+	<div class="play again" ng-click="resetScore(4, true);">Play Again</div>
+
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controller.js"></script>
+	<script src="js/service.js"></script>
+	<script>
+		var heightSet = function(){
+			var height = $('.tileContainer').width();
+			$('.tileContainer').css('height', height);
+			console.log(height);
+		};
+		$(window).resize(function(){
+			heightSet();
+		});
+		$('.play').click(function(){
+			$('.play').hide();
+			setTimeout(function(){heightSet();}, 10)
+			countDown();
+		});
+
+		var countDown = function(){
+			var numTime = 60;
+			var t = setInterval(function(){
+				numTime-=1;
+				$('.timer').text(numTime);
+				if(numTime===0){
+					clearInterval(t);
+					$('.butt').hide();
+					$('.score').hide();
+					$('.again').show();
+					$('.finalscore').show();
+				}
+			}, 1000);		
+		};
+
+		$('.again').click(function(){
+			$('.butt').show();
+			$('.score').show();
+			$('.again').hide();
+			$('.finalscore').hide();
+		})
+	</script>
+</body>
+
+</html>
