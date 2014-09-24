@@ -52,9 +52,6 @@
 	text-align: center;
 	display:inline-block;
 	display:flex;
-	/* Remove this Later*/
-	display:none;
-	/*   */
 	margin:0 auto;
 }
 .pause:hover {

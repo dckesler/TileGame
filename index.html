@@ -47,6 +47,21 @@
 	<script src="js/controller.js"></script>
 	<script src="js/service.js"></script>
 	<script>
+		var numTime = 60;
+		var pause = false;
+		$('.pause').click(function(){
+			if(pause === false){
+				pause = true;
+				$('.pause').text("Unpause");
+				$('.tileContainer').hide();
+			}
+			else if(pause === true){
+				pause = false;
+				$('.pause').text("Pause");
+				$('.tileContainer').show();
+				countDown();
+			}
+		})
 		var heightSet = function(){
 			var height = $('.tileContainer').width();
 			$('.tileContainer').css('height', height);
@@ -62,21 +77,27 @@
 		});
 
 		var countDown = function(){
-			var numTime = 60;
 			var t = setInterval(function(){
-				numTime-=1;
-				$('.timer').text(numTime);
-				if(numTime===0){
+				if(pause===true){
 					clearInterval(t);
-					$('.butt').hide();
-					$('.score').hide();
-					$('.again').show();
-					$('.finalscore').show();
+				}
+				if(pause===false){
+					numTime-=1;
+					$('.timer').text(numTime);
+					if(numTime===0){
+						clearInterval(t);
+						$('.butt').hide();
+						$('.score').hide();
+						$('.again').show();
+						$('.finalscore').show();
+					}
 				}
 			}, 1000);		
 		};
 
+
 		$('.again').click(function(){
+			numTime = 60;
 			$('.butt').show();
 			$('.score').show();
 			$('.again').hide();
